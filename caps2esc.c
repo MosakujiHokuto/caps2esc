@@ -34,7 +34,7 @@ void print_usage(FILE *stream, const char *program) {
             "                  - grave accent as caps\n"
 	    "               3: another customized mode\n"
 	    "                  - caps as esc/ctrl\n"
-	    "                  - left ctrl as caps\n",
+	    "                  - right ctrl as caps\n",
             program);
     // clang-format on
 }
@@ -67,7 +67,7 @@ void write_event_with_mode(struct input_event *event, int mode) {
                 break;
             case 3:
                 switch (event->code) {
-                    case KEY_LEFTCTRL:
+                    case KEY_RIGHTCTRL:
                         event->code = KEY_CAPSLOCK;
                         break;
                 }

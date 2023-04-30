@@ -30,4 +30,7 @@ options:
                  - caps as esc/ctrl
                  - esc as grave accent
                  - grave accent as caps
+			  3: another customized mode
+			     - caps as esc/ctrl
+				 - right ctrl as caps
 ```

@@ -31,7 +31,10 @@ void print_usage(FILE *stream, const char *program) {
             "               2: useful on 60%% layouts\n"
             "                  - caps as esc/ctrl\n"
             "                  - esc as grave accent\n"
-            "                  - grave accent as caps\n",
+            "                  - grave accent as caps\n"
+	    "               3: another customized mode\n"
+	    "                  - caps as esc/ctrl\n"
+	    "                  - left ctrl as caps\n",
             program);
     // clang-format on
 }
@@ -58,6 +61,13 @@ void write_event_with_mode(struct input_event *event, int mode) {
                         event->code = KEY_GRAVE;
                         break;
                     case KEY_GRAVE:
+                        event->code = KEY_CAPSLOCK;
+                        break;
+                }
+                break;
+            case 3:
+                switch (event->code) {
+                    case KEY_LEFTCTRL:
                         event->code = KEY_CAPSLOCK;
                         break;
                 }
